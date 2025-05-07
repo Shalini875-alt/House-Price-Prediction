@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='img.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form action="/predict" method="POST">
+            <label for="area">Area:</label><br>
+            <input type="text" id="area" name="area" required><br><br>
+            
+            <label for="bedrooms">Bedrooms:</label><br>
+            <input type="text" id="bedrooms" name="bedrooms" required><br><br>
+
+            <label for="bathrooms">Bathrooms:</label><br>
+            <input type="text" id="bathrooms" name="bathrooms" required><br><br>
+
+            <label for="stories">Stories:</label><br>
+            <input type="text" id="stories" name="stories" required><br><br>
+
+            <label for="mainroad">Main Road (1 for yes, 0 for no):</label><br>
+            <input type="text" id="mainroad" name="mainroad" required><br><br>
+
+            <label for="guestroom">Guestroom (1 for yes, 0 for no):</label><br>
+            <input type="text" id="guestroom" name="guestroom" required><br><br>
+
+            <label for="basement">Basement (1 for yes, 0 for no):</label><br>
+            <input type="text" id="basement" name="basement" required><br><br>
+
+            <label for="hotwaterheating">Hot Water Heating (1 for yes, 0 for no):</label><br>
+            <input type="text" id="hotwaterheating" name="hotwaterheating" required><br><br>
+
+            <label for="airconditioning">Airconditioning (1 for yes, 0 for no):</label><br>
+            <input type="text" id="airconditioning" name="airconditioning" required><br><br>
+
+            <label for="parking">Parking (1 for yes, 0 for no):</label><br>
+            <input type="text" id="parking" name="parking" required><br><br>
+
+            <label for="prefarea">Preferred Area (1 for yes, 0 for no):</label><br>
+            <input type="text" id="prefarea" name="prefarea" required><br><br>
+
+            <label for="furnishingstatus">Furnishing Status (1 for furnished, 0 for unfurnished):</label><br>
+            <input type="text" id="furnishingstatus" name="furnishingstatus" required><br><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <h3>{{ prediction_text }}</h3>
+
+        <p style="text-align: center; color: #555; font-size: 0.95em; margin-top: 20px;">
+            <em>Note: For all binary fields, use <strong>1 for Yes</strong> and <strong>0 for No</strong>.</em>
+        </p>
+    </div>
+</body>
+</html>
